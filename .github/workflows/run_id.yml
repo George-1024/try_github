@@ -44,6 +44,6 @@ jobs:
       - name: Output Run Attempt
         run: echo ${{ github.run_attempt }}
 
-      - name: Time display
+      - name: Time
         id: date
-        run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
+        run: echo "$(date +'%Y-%m-%d')"
