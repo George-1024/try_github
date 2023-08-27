@@ -46,4 +46,4 @@ jobs:
 
       - name: Time
         id: date
-        run: echo "$(date +'%Y-%m-%d')"
+        run: echo "$(date +'%M.%2m.%3b')"
