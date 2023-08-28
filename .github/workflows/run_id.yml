@@ -53,4 +53,4 @@ jobs:
           search="9.99.999"
           replace="1.2.3"
           sed -i "s|$search|$replace|g" $file_path
-          echo 'cat version.h'
+          cat version.h
