@@ -51,6 +51,6 @@ jobs:
         run: |
           file_path="version.h"
           search="9.99.999"
-          replace="1.02.${printf '%03d' ${github.run_number}}"
+          replace="1.02.$(printf '%03d' ${{ github.run_number }})"
           sed -i "s|$search|$replace|g" $file_path
           cat version.h
