@@ -44,13 +44,13 @@ jobs:
       - name: Output Run Attempt
         run: echo ${{ github.run_attempt }}
 
-      - name: Time
-        run: echo "$(date +'%M.%2m.%3b')"
+      - name: Build time
+        run: echo "$(date +'%Y-%m-%d')"
 
       - name: UpdateVersion
         run: |
           file_path="version.h"
           search="9.99.999"
-          replace="1.2.3"
+          replace="1.2." ${{ github.run_number }}
           sed -i "s|$search|$replace|g" $file_path
           cat version.h
