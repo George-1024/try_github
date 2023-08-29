@@ -21,7 +21,7 @@ RUN mkdir -p ${INSTALL} && \
 
 RUN mkdir -p ${INSTALL} && \
 	cd ${INSTALL} && \
-	curl https://www.segger.com/downloads/embedded-studio/Setup_EmbeddedStudio_ARM_v542b_linux_x64.tar.gz -o ses.tar.gz && \
+	wget https://www.segger.com/downloads/embedded-studio/Setup_EmbeddedStudio_ARM_v542b_linux_x64.tar.gz -o ses.tar.gz && \
 	tar xvzf ses.tar.gz && \
 	echo "yes" | sudo ./arm_segger_embedded_studio_542b_linux_x64/install_segger_embedded_studio --copy-files-to /opt/ses && \
  	cd .. && \
