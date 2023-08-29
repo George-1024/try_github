@@ -7,8 +7,13 @@ FROM ubuntu:22.04
 
 #RUN apt-get update && \
 #	apt-get install -y libx11-6 libfreetype6 libxrender1 libfontconfig1 libxext6 xvfb curl unzip wget
-RUN apt-get unpdate && \
-	apt-get install -y wget curl
+#RUN apt-get unpdate && \
+#	apt-get install -y wget curl
+RUN <<EOT
+    apt-get -y update
+    apt-get -y upgrade
+    apt-get -y install wget curl unzip
+EOT
 
 ENV INSTALL="/tmp/install"
 
