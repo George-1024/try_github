@@ -21,18 +21,16 @@ RUN mkdir -p ${INSTALL} && \
 #RUN wget https://www.segger.com/downloads/embedded-studio/Setup_EmbeddedStudio_ARM_v550_linux_x64.tar.gz -O ses_install.tar.gz \
 #	&& tar -xzf ses_install.tar.gz \
 #	&& /bin/sh -c '/bin/echo -e "yes\n" | ./arm_segger_embedded_studio_550_linux_x64/install_segger_embedded_studio --copy-files-to /opt/ses'
-    
+
+# Install Segger Embedded Studio 4.52
 RUN mkdir -p ${INSTALL} && \
 	cd ${INSTALL} && \
 	wget https://www.segger.com/downloads/embedded-studio/Setup_EmbeddedStudio_ARM_v542b_linux_x64.tar.gz -O ses.tar.gz && \
 	tar xvzf ses.tar.gz && \
-	echo "yes" | sudo ./arm_segger_embedded_studio_542b_linux_x64/install_segger_embedded_studio --copy-files-to /opt/ses && \
+	echo "yes" | ./arm_segger_embedded_studio_542b_linux_x64/install_segger_embedded_studio --copy-files-to /opt/ses && \
  	cd .. && \
 	rm -rf ${INSTALL}
  # Install Segger Embedded Studio 4.52
-#RUN wget https://dl.segger.com/files/embedded-studio/Setup_EmbeddedStudio_ARM_v542b_linux_x64.tar.gz -O ses_install.tar.gz \
-    #&& tar -xzf ses_install.tar.gz \
-    #&& /bin/sh -c '/bin/echo -e "yes\n" | ./arm_segger_embedded_studio_542b_linux_x64/install_segger_embedded_studio --copy-files-to /opt/ses'
 
 # Update pip3 to include nrfutil
 RUN pip3 install --upgrade pip && pip3 install nrfutil
