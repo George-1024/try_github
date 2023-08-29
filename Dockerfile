@@ -5,7 +5,7 @@
 FROM ubuntu:18.04
 
 RUN apt-get update && \
-	apt-get install -y libx11-6 libfreetype6 libxrender1 libfontconfig1 libxext6 xvfb curl unzip python-pip wget
+	apt-get install -y libx11-6 libfreetype6 libxrender1 libfontconfig1 libxext6 xvfb curl unzip python3-pip wget
 
 ENV INSTALL="/tmp/install"
 
@@ -18,21 +18,18 @@ RUN mkdir -p ${INSTALL} && \
 	dpkg -i --force-overwrite nRF-Command-Line-Tools_10_9_0_Linux-amd64.deb && \
 	cd .. && \
 	rm -rf ${INSTALL}
-#RUN wget https://www.segger.com/downloads/embedded-studio/Setup_EmbeddedStudio_ARM_v550_linux_x64.tar.gz -O ses_install.tar.gz \
-#	&& tar -xzf ses_install.tar.gz \
-#	&& /bin/sh -c '/bin/echo -e "yes\n" | ./arm_segger_embedded_studio_550_linux_x64/install_segger_embedded_studio --copy-files-to /opt/ses'
 
-# Install Segger Embedded Studio 4.52
-RUN mkdir -p ${INSTALL} && \
-	cd ${INSTALL} && \
-	wget https://www.segger.com/downloads/embedded-studio/Setup_EmbeddedStudio_ARM_v542b_linux_x64.tar.gz -O ses.tar.gz && \
-	tar xvzf ses.tar.gz && \
-	echo "yes" | ./arm_segger_embedded_studio_542b_linux_x64/install_segger_embedded_studio --copy-files-to /opt/ses && \
- 	cd .. && \
-	rm -rf ${INSTALL}
- # Install Segger Embedded Studio 4.52
+# Install Segger Embedded Studio 5.42
+#RUN mkdir -p ${INSTALL} && \
+#	cd ${INSTALL} && \
+#	wget https://www.segger.com/downloads/embedded-studio/Setup_EmbeddedStudio_ARM_v542b_linux_x64.tar.gz -O ses.tar.gz && \
+#	tar xvzf ses.tar.gz && \
+#	echo "yes" | ./arm_segger_embedded_studio_542b_linux_x64/install_segger_embedded_studio --copy-files-to /opt/ses && \
+# 	cd .. && \
+#	rm -rf ${INSTALL}
 
 # Update pip3 to include nrfutil
-RUN pip3 install --upgrade pip && pip3 install nrfutil
+RUN pip3 install --upgrade && pip3 install nrfutil
+RUN nrfutil
 
 ENV PATH="/opt/mergehex:/opt/nrfjprog:/opt/ses/bin:$PATH"
