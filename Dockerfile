@@ -31,13 +31,11 @@ RUN mkdir -p ${INSTALL} && \
 # Install nrfutil
 #RUN pip3 install --upgrade && pip3 install nrfutil
 #RUN wget https://developer.nordicsemi.com/.pc-tools/nrfutil/x64-linux/nrfutil
-RUN <<EOT
-    wget -q https://developer.nordicsemi.com/.pc-tools/nrfutil/x64-linux/nrfutil
-    mv nrfutil /usr/local/bin
-    chmod +x /usr/local/bin/nrfutil
-    nrfutil install nrf5sdk-tools
-    nrfutil list
-EOT
+RUN wget -q https://developer.nordicsemi.com/.pc-tools/nrfutil/x64-linux/nrfutil
+RUN mv nrfutil /usr/local/bin
+RUN chmod +x /usr/local/bin/nrfutil
+RUN nrfutil install nrf5sdk-tools
+RUN nrfutil list
 
 
 ENV PATH="/opt/mergehex:/opt/nrfjprog:/opt/ses/bin:$PATH"
