@@ -5,7 +5,7 @@
 FROM ubuntu:18.04
 
 RUN apt-get update && \
-	apt-get install -y libx11-6 libfreetype6 libxrender1 libfontconfig1 libxext6 xvfb curl unzip python3-pip wget
+	apt-get install -y libx11-6 libfreetype6 libxrender1 libfontconfig1 libxext6 xvfb curl unzip wget
 
 ENV INSTALL="/tmp/install"
 
@@ -29,7 +29,9 @@ RUN mkdir -p ${INSTALL} && \
 #	rm -rf ${INSTALL}
 
 # Update pip3 to include nrfutil
-RUN pip3 install --upgrade && pip3 install nrfutil
-RUN nrfutil
+#RUN pip3 install --upgrade && pip3 install nrfutil
+RUN wget https://developer.nordicsemi.com/.pc-tools/nrfutil/x64-linux/nrfutil
+RUN ./nrfutil install nrf5sdk-tools
+RUN ./nrfutil
 
 ENV PATH="/opt/mergehex:/opt/nrfjprog:/opt/ses/bin:$PATH"
