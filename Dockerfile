@@ -12,14 +12,14 @@ FROM ubuntu:22.04
 RUN <<EOT
     apt-get -y update
     apt-get -y upgrade
-    apt-get -y install wget curl unzip libncurses5
+    apt-get -y install wget unzip libncurses5
 EOT
 
 ENV INSTALL="/tmp/install"
 
 RUN mkdir -p ${INSTALL} && \
 	cd ${INSTALL} && \
-	curl https://nsscprodmedia.blob.core.windows.net/prod/software-and-other-downloads/desktop-software/nrf-command-line-tools/sw/versions-10-x-x/10-9-0/nrfcommandlinetools1090linuxamd64.tar.gz -o nrftools.tar.gz && \
+	wget https://nsscprodmedia.blob.core.windows.net/prod/software-and-other-downloads/desktop-software/nrf-command-line-tools/sw/versions-10-x-x/10-9-0/nrfcommandlinetools1090linuxamd64.tar.gz -o nrftools.tar.gz && \
 	tar xf nrftools.tar.gz && \
 	dpkg -i --force-overwrite JLink_Linux_V680a_x86_64.deb && \
 	dpkg -i --force-overwrite nRF-Command-Line-Tools_10_9_0_Linux-amd64.deb && \
