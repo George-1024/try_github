@@ -18,13 +18,13 @@ RUN mkdir -p ${INSTALL} && \
 	dpkg -i --force-overwrite nRF-Command-Line-Tools_10_9_0_Linux-amd64.deb && \
 	cd .. && \
 	rm -rf ${INSTALL}
-RUN wget https://www.segger.com/downloads/embedded-studio/Setup_EmbeddedStudio_ARM_v550_linux_x64.tar.gz -O ses_install.tar.gz \
-	&& tar -xzf ses_install.tar.gz \
-	&& /bin/sh -c '/bin/echo -e "yes\n" | ./arm_segger_embedded_studio_550_linux_x64/install_segger_embedded_studio --copy-files-to /opt/ses'
+#RUN wget https://www.segger.com/downloads/embedded-studio/Setup_EmbeddedStudio_ARM_v550_linux_x64.tar.gz -O ses_install.tar.gz \
+#	&& tar -xzf ses_install.tar.gz \
+#	&& /bin/sh -c '/bin/echo -e "yes\n" | ./arm_segger_embedded_studio_550_linux_x64/install_segger_embedded_studio --copy-files-to /opt/ses'
     
 RUN mkdir -p ${INSTALL} && \
 	cd ${INSTALL} && \
-	wget https://www.segger.com/downloads/embedded-studio/Setup_EmbeddedStudio_ARM_v542b_linux_x64.tar.gz -o ses.tar.gz && \
+	wget https://www.segger.com/downloads/embedded-studio/Setup_EmbeddedStudio_ARM_v542b_linux_x64.tar.gz -O ses.tar.gz && \
 	tar xvzf ses.tar.gz && \
 	echo "yes" | sudo ./arm_segger_embedded_studio_542b_linux_x64/install_segger_embedded_studio --copy-files-to /opt/ses && \
  	cd .. && \
