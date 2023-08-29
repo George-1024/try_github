@@ -12,7 +12,7 @@ FROM ubuntu:22.04
 RUN <<EOT
     apt-get -y update
     apt-get -y upgrade
-    apt-get -y install wget curl unzip
+    apt-get -y install wget curl unzip libncurses5
 EOT
 
 ENV INSTALL="/tmp/install"
