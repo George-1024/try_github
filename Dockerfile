@@ -5,7 +5,7 @@
 FROM ubuntu:18.04
 
 RUN apt-get update && \
-	apt-get install -y libx11-6 libfreetype6 libxrender1 libfontconfig1 libxext6 xvfb curl unzip python-pip git zip
+	apt-get install -y libx11-6 libfreetype6 libxrender1 libfontconfig1 libxext6 xvfb curl unzip python-pip wget
 
 ENV INSTALL="/tmp/install"
 
