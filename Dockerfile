@@ -6,7 +6,7 @@ FROM ubuntu:18.04
 
 RUN apt-get update && \
 	apt-get install -y libx11-6 libfreetype6 libxrender1 libfontconfig1 libxext6 xvfb curl unzip python-pip git zip && \
- 	pip install update && \
+ 	pip install --update && \
 	pip install nrfutil
 
 ENV INSTALL="/tmp/install"
