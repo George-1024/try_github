@@ -2,10 +2,13 @@
 
 # Use GGL Ubuntu 18.04 LTS as the basis for the Docker image.
 #FROM rnd-docker-images.local.gallagher.io/ggl_ubuntu:18.04.2
-FROM ubuntu:18.04
+#FROM ubuntu:18.04
+FROM ubuntu:22.04
 
-RUN apt-get update && \
-	apt-get install -y libx11-6 libfreetype6 libxrender1 libfontconfig1 libxext6 xvfb curl unzip wget
+#RUN apt-get update && \
+#	apt-get install -y libx11-6 libfreetype6 libxrender1 libfontconfig1 libxext6 xvfb curl unzip wget
+RUN apt-get unpdate && \
+	apt-get install -y wget curl
 
 ENV INSTALL="/tmp/install"
 
