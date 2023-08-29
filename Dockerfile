@@ -19,7 +19,7 @@ ENV INSTALL="/tmp/install"
 
 RUN mkdir -p ${INSTALL} && \
 	cd ${INSTALL} && \
-	wget https://nsscprodmedia.blob.core.windows.net/prod/software-and-other-downloads/desktop-software/nrf-command-line-tools/sw/versions-10-x-x/10-9-0/nrfcommandlinetools1090linuxamd64.tar.gz -o nrftools.tar.gz && \
+	wget https://nsscprodmedia.blob.core.windows.net/prod/software-and-other-downloads/desktop-software/nrf-command-line-tools/sw/versions-10-x-x/10-9-0/nrfcommandlinetools1090linuxamd64.tar.gz -O nrftools.tar.gz && \
 	tar xf nrftools.tar.gz && \
 	dpkg -i --force-overwrite JLink_Linux_V680a_x86_64.deb && \
 	dpkg -i --force-overwrite nRF-Command-Line-Tools_10_9_0_Linux-amd64.deb && \
