@@ -56,5 +56,5 @@ jobs:
           cat version.h
 
       - name: Build Docker
-        run: docker buid --file 'Docker'
+        run: docker build --file 'Docker'
         #DOCKER_BUILDKIT=1 docker build --file 'Infrastructure/Dockerfile.IOTServer.GitHubBuild' --tag ghcr.io/$GITHUB_ORG/am-iot-api:latest --build-arg pkg_registry_name=$GITHUB_ORG --build-arg access_token=${{ secrets.GITHUB_TOKEN }} --build-arg github_registry_url=$PKG_REGISTRY .
