@@ -22,7 +22,7 @@ RUN mkdir -p ${INSTALL} && \
 RUN mkdir -p ${INSTALL} && \
 	cd ${INSTALL} && \
 	curl https://www.segger.com/downloads/embedded-studio/Setup_EmbeddedStudio_ARM_v510a_linux_x64.tar.gz -o ses.tar.gz && \
-	tar xf ses.tar.gz && \
+	tar xvzf ses.tar.gz && \
 	echo "yes" | DISPLAY=:1 $(find arm_segger_* -name "install_segger*") --copy-files-to /opt/ses && \
 	cd .. && \
 	rm -rf ${INSTALL}
